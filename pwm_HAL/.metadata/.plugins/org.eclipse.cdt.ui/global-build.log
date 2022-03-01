@@ -1,0 +1,24 @@
+22:34:01 **** Incremental Build of configuration Debug for project pwm03 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:5: warning: unused variable 'pwm' [-Wunused-variable]
+  126 | int pwm=0;
+      |     ^~~
+arm-none-eabi-gcc -o "pwm03.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\MSI\Desktop\pwm3\pwm03\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="pwm03.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: pwm03.elf
+ 
+arm-none-eabi-objdump -h -S  pwm03.elf  > "pwm03.list"
+arm-none-eabi-objcopy  -O ihex  pwm03.elf  "pwm03.hex"
+arm-none-eabi-objcopy  -O binary  pwm03.elf  "pwm03.bin"
+arm-none-eabi-size   pwm03.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10872	     20	   1724	  12616	   3148	pwm03.elf
+Finished building: default.size.stdout
+ 
+Finished building: pwm03.hex
+Finished building: pwm03.bin
+ 
+ 
+Finished building: pwm03.list
+ 
